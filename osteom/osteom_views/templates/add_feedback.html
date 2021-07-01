@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container col-xl-11 col-xxl-8 px-4 py-5 border-bottom">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-md-1 mx-auto col-lg-7" style="margin-top:10%;">
+            <form action="" class="p-4 p-md-5 border rounded-5 bg-light" method="post" style="margin-bottom: 140px;">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label" for="id_name">Введите ваше имя</label>
+                    <input class="form-control" id="id_name" maxlength="15" name="name" placeholder="Сюда" required=""
+                           type="name">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="id_surname">Введите вашу Фамилию</label>
+                    <input class="form-control" id="id_surname" maxlength="15" name="surname" placeholder="Тоже сюда"
+                           required=""
+                           type="surname">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="id_content">Ваше впечатление</label>
+                    <textarea class="form-control" id="id_content" name="content" placeholder="Максимум 800 символов"
+                              required="" rows="7" type="content"></textarea>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary" type="submit">Отправить форму</button>
+                </div>
+                <hr class="my-4"  style="margin-top:30px !important;">
+                <small class="text-muted">Нам понадобится время на
+                    обработку.</small>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

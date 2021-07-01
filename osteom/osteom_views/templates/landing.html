@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+    <div class="b-example-divider"></div>
+    <!-- О враче -->
+    <div class="container col-xxl-8 px-4 py-5 border-bottom" id="main">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img alt="Bootstrap Themes" class="d-block mx-lg-auto img-fluid" height="500" loading="lazy"
+                     src="{{ visitka.image }}" width="700">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">
+                    {{ visitka.name }}
+                </h1>
+                <p class="lead">{{ visitka.content }}</p>
+            </div>
+        </div>
+    </div>
+    <!-- О враче -->
+    <div class="b-example-divider"></div>
+</div>
+
+<div class="certificates">
+    <div id="about"><p></p></div>
+    <div class="b-example-divider"></div>
+    <!-- Сертификат -->
+    <div class="px-4 py-5 my-5 text-center">
+        <h2 class="display-5" style="margin-top:25px !important;">Сертификаты</h2>
+        {% for cer in certificates %}
+        <div class="row row-cols-1 row-cols-md-6">
+            {% for photo in cer %}
+            <a class="rounded mx-auto" href="{{ photo.image }}"> <img ;
+                                                                      alt="{{ photo.title }}"
+                                                                      class="rounded mx-auto d-block"
+                                                                      src="{{ photo.image }}" width="100%"> </a>
+            {% endfor %}
+        </div>
+        <p></p>
+        {% endfor %}
+
+    </div>
+    <!-- Сертификат -->
+    <div class="b-example-divider"></div>
+</div>
+
+<div class="prices">
+    <div id="price"><p></p></div>
+    <div class="b-example-divider"></div>
+    <!-- Стоимость -->
+    <div class="container my-5">
+        <div class="row align-items-center rounded-3 border shadow-lg">
+            <div class="col-lg p-4 p-lg-5 pt-lg-4">
+                <h2 class="display-5" style="margin-top:5px;">Стоимость</h2>
+                <hr style="background-color:#651A14 !important; height: 3px;">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    {% for price in prices %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body" style="text-align: center">
+                                {% if price.free %}
+                                <h5 class="card-title" style="font-weight: bold; text-align:center; margin-top: 10%">
+                                    Бесплатно</h5>
+                                {% else %}
+                                <h5 class="card-title" style="font-weight: bold; text-align:center; margin-top: 10%">
+                                    {{ price.price }} руб</h5>
+                                {% endif %}
+                                <p style="margin-bottom: 65%"></p>
+                                <p class="card-text" style="font-size: 17px; text-align:center; margin-bottom: 5%">
+                                    {{ price.title }}</p>
+                                <hr>
+                                <a class="btn btn-primary" href="/appointment" role="button">Записаться</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Стоимость -->
+    <div class="b-example-divider"></div>
+</div>
+
+<div class="feedbacks">
+    <div id="feedback"><p></p></div>
+    <div class="b-example-divider"></div>
+    <!-- Feedback -->
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h2 class="display-4 mx-auto" style="margin-top:10px;">Отзывы</h2>
+        <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleControls">
+            <div class="carousel-inner" style="margin-bottom:10%;">
+                {% if feedback1 %}
+                <div class="carousel-item active">
+                    <a href="/add_feedback"><img alt="{{feedback1.name}} {{feedback1.surname}}" class="d-block mx-auto"
+                                                 src="static/images/templates/plate.png"></a>
+                    <div class="card-img-overlay !important">
+                        <h5 class="card-title">{{ feedback1.name }} {{ feedback1.surname }}</h5>
+                        <div class="feedback">
+                            <p class="card-text">{{ feedback1.content }}</p></div>
+                        <a href="/add_feedback">
+                            <div class="opech" style="margin-left:45%; margin-top:5px; color:#651A14;">Оставь свой!
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if feedback2 %}
+                <div class="carousel-item">
+                    <a href="/add_feedback"><img alt="{{feedback2.name}} {{feedback2.surname}}" class="d-block mx-auto"
+                                                 src="static/images/templates/plate.png"></a>
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ feedback2.name }} {{ feedback2.surname }}</h5>
+                        <div class="feedback">
+                            <p class="card-text">{{ feedback2.content }}</p></div>
+                        <a href="/add_feedback">
+                            <div class="opech" style="margin-left:45%; margin-top:5px; color:#651A14;">Оставь свой!
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if feedback3 %}
+                <div class="carousel-item">
+                    <a href="/add_feedback"><img alt="{{feedback3.name}} {{feedback3.surname}}" class="d-block mx-auto"
+                                                 src="static/images/templates/plate.png"></a>
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ feedback3.name }} {{ feedback3.surname }}</h5>
+                        <div class="feedback">
+                            <p class="card-text">{{ feedback3.content }}</p></div>
+                        <a href="/add_feedback">
+                            <div class="opech" style="margin-left:45%; margin-top:5px; color:#651A14;">Оставь свой!
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if feedback4 %}
+                <div class="carousel-item">
+                    <a href="/add_feedback"><img alt="{{feedback4.name}} {{feedback4.surname}}" class="d-block mx-auto"
+                                                 src="static/images/templates/plate.png"></a>
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ feedback4.name }} {{ feedback4.surname }}</h5>
+                        <div class="feedback">
+                            <p class="card-text">{{ feedback4.content }}</p></div>
+                        <a href="/add_feedback">
+                            <div class="opech" style="margin-left:45%; margin-top:5px; color:#651A14;">Оставь свой!
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if feedback5 %}
+                <div class="carousel-item">
+                    <a href="/add_feedback"><img alt="{{feedback5.name}} {{feedback5.surname}}" class="d-block mx-auto"
+                                                 src="static/images/templates/plate.png"></a>
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ feedback5.name }} {{ feedback5.surname }}</h5>
+                        <div class="feedback">
+                            <p class="card-text">{{ feedback5.content }}</p></div>
+                        <a href="/add_feedback">
+                            <div class="opech" style="margin-left:45%; margin-top:5px; color:#651A14;">Оставь свой!
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleControls"
+                    type="button">
+                <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleControls"
+                    type="button">
+                <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+    </div>
+    <!-- Feedback -->
+    <div class="b-example-divider"></div>
+</div>
+
+<div class="contacts">
+    <div id="contacts"><p></p></div>
+    <div class="b-example-divider"></div>
+    <!-- Контакы -->
+    <div class="container px-4 py-5">
+        <h2 class="display-5" style="margin-top:15px;">Контакты</h2>
+        <div class="row mx-auto">
+        <iframe frameborder="0"
+                height="385"
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A95bfc06cfae1198c326cba69495d5860da170834eeb27ac969177c58635f6730&amp;source=constructor"
+                width="449"></iframe>
+    </div>
+    <div class="row row-cols-1 row-cols-md mx-auto" style="text-align: center;">
+        {% for job in jobs %}
+        <div class="col">
+            <img alt="Bootstrap" height="50px;" src="/static/svg/geo-alt.svg" width="20px">
+            <h5 display-5>
+                <div class="copy_true">{{ job.address }}</div>
+            </h5>
+            <img alt="Bootstrap" height="50px;" src="/static/svg/clock.svg" width="20px">
+            <h5 display-5>
+                <div class="copy_true">{{ job.work_time }}</div>
+            </h5>
+            <img alt="Bootstrap" height="50px;" src="/static/svg/telephone.svg" width="20px">
+            {% for number in job.phones %}
+            <h5 display-5><a class="number" href="tel: {{ number }}">
+                <div class="copy_true">{{ number }}</div>
+            </a></h5>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Контакы -->
+<div class="b-example-divider"></div>
+</div>
+{% endblock %}

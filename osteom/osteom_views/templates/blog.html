@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="/static/images/logo.jpg" rel="icon" type="image/x-icon">
+    <link href="/static/css/style.css?random()" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 10%;">
+                    <li class="nav-item">
+                        <a aria-current="page" class="nav-link active" href="/"><b>На главную</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-current="page" class="nav-link active" href="/blog"><b>Блог</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-current="page" class="nav-link active" href="/#contacts"><b>Контакты</b></a>
+                    </li>
+                    <li class="nav-item" style="width: 500px !important;">
+                        <p></p>
+                    </li>
+                    <li class="nav-item" style="text-decoration: none !important;">
+                        <form action="" class="d-flex" method="post">
+                            {% csrf_token %}
+                            <label for="id_filter"></label>
+                            <input aria-label="Search" class="form-control me-2" id="id_filter" name="filter"
+                                   placeholder="Ваш запрос"
+                                   type="search">
+                            <button class="btn btn-outline-success" type="submit">Найти</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="container" role="main" style="margin-top:80px !important;">
+    <!--<div class="row mb-2">
+
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="card bg-dark text-white">
+                    <img alt="..." class="card-img" src="{{ s_post.image }}">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ s_post.title }}</h5>
+                        <p class="card-text">{{ s_post.content }}</p>
+                        <p class="card-text"><a class="stretched-link" href="/blog#{{ s_post.title }}">{{ s_post.date_created }} - Читать дальше</a></p>
+                    </div>
+                </div>
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ s_post.title }}</h3>
+                    <div class="mb-1 text-muted">{{ s_post.date_created }}</div>
+                    <p class="card-text mb-auto">{{ s_post.content }}</p>
+                    <a class="stretched-link" href="/blog#{{ s_post.title }}">Читать дальше</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{{ s_post.image }}" style="width: 200px;">
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">{{ s1_post.title }}</h3>
+                    <div class="mb-1 text-muted">{{ s1_post.date_created }}</div>
+                    <p class="mb-auto">{{ s1_post.content }}</p>
+                    <a class="stretched-link" href="/blog#{{ s1_post.title }}">Читать дальше</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img" focusable="false"
+                         height="250"
+                         preserveAspectRatio="xMidYMid slice" role="img" width="200"
+                         xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title>
+                        <rect fill="#55595c" height="100%" width="100%"></rect>
+                        <text dy=".3em" fill="#eceeef" x="50%" y="50%">Thumbnail</text>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                Из самых последних
+            </h3>
+            {% if posts %}
+            <div class="que">
+                {% for post in posts %}
+                <article class="blog-post" id="{{ post.title }}" style="min-height: 300px;">
+                    <h4 class="blog-post-title">{{ post.title }}</h4>
+                    <p class="blog-post-meta"><img alt="Bootstrap" height="50px;" src="/static/svg/calendar3.svg"
+                                                   style="margin-right:7px;" width="20px">{{post.date_created}}<img
+                            alt="Bootstrap" height="50px;" src="/static/svg/tags.svg"
+                            style="margin-left:15px; margin-right:7px;"
+                            width="20px">{{post.get_tags}}</p>
+
+                    <p>{% if post.image %}<img align="left" class="post-img"
+                                               data-sizes="(max-width: 280px) 100vw, 280px" data-src="{{ post.image }}"
+                                               data-srcset="{{ post.image }}"
+                                               height="185"
+                                               hspace="5"
+                                               sizes="(max-width: 280px) 100vw, 280px"
+                                               src="{{ post.image }}"
+                                               style="margin-right:15px; margin-bottom:5px;"
+                                               vspace="2"
+                                               width="280"
+                    >{% endif %}
+                        {{ post.content }}</p>
+                    {% if post.file %}
+                    <p>
+                        <a download href="{{ post.file }}"><img
+                                alt="Bootstrap" height="25px;" src="/static/svg/file.svg"
+                                style="margin-bottom:5px; margin-right:5px;">Скачать прикреплённый файл</a>
+                    </p>
+                    {% endif %}
+                </article>
+                <p class="blog-post-meta">
+                    <a href="http://vk.com/share.php?url=[URl]/blog#{{ post.title }}&title={{ post.title }}&image={{ post.image }}&noparse=true"><img
+                            alt="Bootstrap" height="28px;" src="/static/svg/vk.svg"></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=[URL]/blog#{{ post.title }}"><img
+                            alt="Bootstrap" height="26px;" src="/static/svg/facebook.svg"></a>
+                    <a href="https://t.me/share/url?url=[IRL]/blog#{{ post.title }}=share2"><img
+                            alt="Bootstrap" height="25px;" src="/static/svg/telegram.svg"></a>
+                    <a href="https://api.whatsapp.com/send?text=[URL]/blog#{{ post.title }}=share2"><img
+                            alt="Bootstrap" height="30px;" src="/static/svg/whatsapp.svg"></a>
+                </p>
+                <hr>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>Ничего не найдено.</p>
+            {% endif %}
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                    <h3 class="fst-italic"><img alt="{{ bio.title }}"
+                                                class="rounded-circle" src="{{ bio.img }}"
+                                                style="height:75px; width:75px; margin-bottom: 7px; margin-right:30px;">О
+                        блоге </h3>
+                    <p class="mb-0">{{ bio.bio }}</p>
+                </div>
+                <div class="p-4">
+                    <h4 class="fst-bold">По дате выхода</h4>
+                    <ol class="list-unstyled mb-0" style="color:black !important">
+                        <li><a href="/blogw">За последнюю неделю</a></li>
+                        <li><a href="/blogm">За месяц</a></li>
+                        <li><a href="/blogy">За год</a></li>
+                        <li><a href="/blog">За всё время</a></li>
+                    </ol>
+                </div>
+                <div class="p-4">
+                    <h4 class="fst-bold">Другие контакты</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://vk.com/osteom"><img
+                                alt="Bootstrap" height="40px;" src="/static/svg/vk_contacts.svg"
+                                style="margin-bottom:5px; margin-right:5px;"></a><a
+                                href="https://www.instagram.com/404/"><img
+                                alt="Bootstrap" height="40px;" src="/static/svg/inst_contacts.svg"
+                                style="margin-bottom:5px; margin-right:5px;"></a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+</main>
+</main>
+
+<footer>
+    <div class="bg-dark text-secondary px-4 text-center" style="height:10%; margin-top:240px;">
+        <div class="py-5">
+            <div class="col-lg-6 mx-auto">
+                <a class="opech" href="mailto:{{ visitka.mail }}?subject=Я нашел опечатку на вашем сайте"><p
+                        class="fs-8 mb-4" style="text-align: right !important;">Нашли опечатку? Напишите нам!</p></a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+</body>
+</html>

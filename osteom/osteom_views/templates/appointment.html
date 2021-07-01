@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Запсиь -->
+<div class="container col-xl-10 col-xxl-8 px-4 py-5 border-bottom">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h4 class="display-5 fw-bold lh-1 mb-2" style="margin-top: 0px;">Запишитесь на приём</h4>
+            <p class="col fs-4" style="text-align:center;">Разнообразсти требуют определения и уточнения
+                позиций, занимаемых участниками в отношении поставленных задач.</p>
+        </div>
+        <div class="col-md-10 mx-auto col-lg-5" style="margin-top:10%;">
+            <form action="" class="p-4 p-md-5 border rounded-3 bg-light" method="post" style="margin-bottom: 140px;">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="id_name" maxlength="30" name="name" required="" type="name">
+                    <label for="id_name">Введите ваше имя</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="id_mail" name="mail" required="" type="email">
+                    <label for="id_mail">Введите вашу почту *</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="id_phone" name="phone" required="" type="phone">
+                    <label for="id_phone">Введите ваш номер</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Отправить</button>
+                <hr class="my-4">
+                <small class="text-muted">Заполните форму, и мы с вами обязательно свяжемся!</small>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Запсиь -->
+{% endblock %}

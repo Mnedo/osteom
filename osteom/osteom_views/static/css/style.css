@@ -1,0 +1,86 @@
+main {
+    user-select: none;
+}
+
+.opech {
+  text-decoration:none !important;
+  color: black;
+}
+
+.opech:hover {
+  text-decoration:none !important;
+  color: grey;
+}
+
+.number {
+    color: black;
+}
+
+.number:hover {
+    color: black;
+}
+
+.copy_true {
+    user-select: text !important;
+}
+
+header {
+    background: #343a40;
+}
+
+.bd-footer {
+    background: #BDD2FF;
+}
+
+.nav-item {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    margin: 5px;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
+
+.d-flex:hover {
+    text-decoration: none !important;
+}
+
+body {
+  background: #f7f6e7 !important;
+  font-family: Helvetica !important;
+}
+
+h2 {
+   margin-bottom: 5% !important;
+   font-family: Robot !important;
+   text-align: center !important;
+}
+
+.col {
+    margin-top: 5%;
+}
+
+.card h100{
+    border-radius: 100px !important;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.parent {
+      display: flex;
+      justify-content: center;
+}
+
+.feedback {
+    margin-left:23%;
+    width: 550px !important;
+    vertical-align: middle !important;
+}
+
+.map {
+    text-align:center;
+}
+
