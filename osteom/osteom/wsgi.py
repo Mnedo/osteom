@@ -1,6 +1,6 @@
 """
 WSGI config for osteom project.
-
+from dj_static import Cling
 It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
@@ -13,4 +13,5 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'osteom.settings')
 
+application = Cling(get_wsgi_application())
 application = get_wsgi_application()
